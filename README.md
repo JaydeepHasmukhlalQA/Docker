@@ -2,7 +2,7 @@
 
 ## Building the image
 
-To build the image. Use the command `docker build -t nameofimage`
+To build the image. Use the command `docker build -t nameofimage .`
 
 ## Running the image
 
