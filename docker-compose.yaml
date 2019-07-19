@@ -1,0 +1,37 @@
+version: '3.7'
+services:
+  ui:
+    image: angular-cli
+    build: ./Docker_UI
+    ports:
+    - target: 80
+      published: 80
+    depends_on:
+    - jenkins
+    - api
+  api:
+    image: api
+    build: ./Docker_API
+    depends_on:
+    - mongo
+  mongo:
+    image: mongo:latest
+    volumes:
+    - type: volume
+      source: mongo
+      target: /data/db
+    container_name: mongo
+  jenkins:
+    image: bobcrutchley/jenkins:latest
+    volumes:
+    - type: volume
+      source: jenkins-home
+      target: /var/jenkins-home
+    - type: bind
+      source: /var/run/docker.sock
+      target: /var/run/docker.sock
+    environment:
+    - JENKINS_OPTS="prefix=/jenkins"
+volumes:
+  jenkins-home:
+  mongo:
