@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  ui:
+    image: angular-cli
+    build: ./Docker_UI
+    ports:
+    - target: 80
+      published: 80
+    depends_on:
+    - jenkins
+    - api
