@@ -1,0 +1,3 @@
+[submodule "Docker_API/poolmanage-ui"]
+	path = Docker_API/poolmanage-ui
+	url = https://github.com/JaydeepHasmukhlalQA/poolmanage-ui.git
